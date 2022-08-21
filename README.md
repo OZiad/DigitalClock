@@ -1,1 +1,1 @@
-# DigitalClock
+A simple digital clock meant to show the time and date using the swing framework.
