@@ -15,11 +15,12 @@ public class Frame extends JFrame {
 	SimpleDateFormat dateFormat;
 
 	Frame() {
-		this.setTitle("DigitalClock"); // Set frame title
-		this.setSize(600, 250); // Set frame size (width x height)
+		
+		this.setTitle("DigitalClock");
+		this.setSize(600, 250); 
 		this.setResizable(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // set window to close when close button is pressed
-		this.setLayout(new FlowLayout()); // JFrame layout
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		this.setLayout(new FlowLayout());
 
 		// time label visual representation
 		timeFormat = new SimpleDateFormat("hh:mm:ss a"); // time format set to hour:minute:seconds AM/PM
@@ -27,10 +28,10 @@ public class Frame extends JFrame {
 		timeLabel.setFont(new Font("Arial", Font.PLAIN, 70));
 		timeLabel.setForeground(Color.red);
 		timeLabel.setBackground(Color.black);
-		timeLabel.setOpaque(true); // make background visible
+		timeLabel.setOpaque(true); 
 
 		// date label visual representation
-		dateFormat = new SimpleDateFormat("E dd/MM/yyyy"); // date format set to day/month/year
+		dateFormat = new SimpleDateFormat("E dd/MM/yyyy"); // date format set to weekday day/month/year
 		dateLabel = new JLabel();
 		dateLabel.setFont(new Font("Arial", Font.PLAIN, 70));
 		dateLabel.setForeground(Color.red);
@@ -43,13 +44,13 @@ public class Frame extends JFrame {
 		this.setVisible(true); // make Frame window visible
 	}
 
-	// method to update time every second
+	/** updates time every second and sets time and date labels to display time. */
 	public void startClock() {
 		while (true) {
 			timeLabel.setText(timeFormat.format(Calendar.getInstance().getTime()));
 			dateLabel.setText(dateFormat.format(Calendar.getInstance().getTime()));
 			try {
-				Thread.sleep(1000); // sleep method until next second
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
